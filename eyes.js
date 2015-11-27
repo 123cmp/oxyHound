@@ -1,18 +1,15 @@
 var Brains = require('./brains'),
     childProcess = require('child_process');
 
-var interval = null;
-
 function startWatching() {
-    interval = setInterval(remember, 10000);
+    setInterval(remember, 10000);
     Brains.subscribe("ears:stop", function() {
         stopWatching();
     })
 }
 
 function stopWatching() {
-    if(interval) clearInterval(interval);
-    interval = null;
+    process.exit(0)
 }
 
 function remember() {
