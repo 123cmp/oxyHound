@@ -12,6 +12,7 @@ function Brains() {
     };
 
     self.startSession = function() {
+        if(!fs.existsSync('sessions')) fs.mkdirSync('sessions');
         sessionDir = 'sessions/' + (new Date()).toTimeString();
         if(!fs.existsSync(sessionDir)) fs.mkdirSync(sessionDir);
     };
